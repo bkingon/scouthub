@@ -1,0 +1,29 @@
+.table,
+.table--flat
+  table-layout: fixed
+  width: 100%
+
+  thead
+    th
+      border-bottom: 1px solid #D1D1D1
+      font-size: 1.1rem
+      padding: $base-vr / 3
+      text-align: left
+      &.text--right
+        text-align: right
+      &.text--center
+        text-align: center
+
+  tbody
+    td
+      padding: $base-vr / 4
+
+    tr
+      &:nth-child(odd)
+        background-color: #EFEFEF
+
+.table--flat
+  tbody
+    tr
+      &:nth-child(odd)
+        background-color: inherit

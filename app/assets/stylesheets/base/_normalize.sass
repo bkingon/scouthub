@@ -1,0 +1,180 @@
+// Full reset
+*
+  +prefixer(box-sizing, border-box, webkit moz spec)
+  +reset-box
+
+html
+  +prefixer(text-size-adjust, 100%, webkit ms)
+  font-family: $helvetica
+  font-size: $base-font-size
+  line-height: $base-line-height
+
+
+/// HTML5
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary
+  display: block
+
+audio,
+canvas,
+progress,
+video
+  display: inline-block
+  vertical-align: baseline
+
+audio:not([controls])
+  display: none
+  height: 0
+
+[hidden],
+template
+  display: none
+
+
+/// Links
+a
+  background-color: transparent
+  &:active,
+  &:hover
+    outline: 0
+
+
+/// Text
+abbr[title]
+  border-bottom: 1px dotted
+
+b,
+strong
+  font-weight: bold
+
+dfn
+  font-weight: italic
+
+mark
+  background: #FF9
+  color: #000
+
+small
+  font-size: 80%
+
+sub,
+sup
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+sub
+  bottom: -0.25em
+sup
+  top: -0.5em
+
+
+/// Images
+img
+  border: 0
+
+svg:not(:root)
+  overflow: hidden
+
+
+/// Grouping content
+hr
+  +prefixer(box-sizing, content-box, moz spec)
+  border: 0
+  border-top: 1px solid #000
+  display: block
+  height: 0
+
+pre
+  overflow: auto
+
+code,
+kbd,
+pre,
+samp
+  font-family: $monospace
+  font-size: 1em
+
+
+/// Forms
+button,
+input,
+optgroup,
+select,
+textarea
+  color: inherit
+  font: inherit
+  margin: 0
+
+button
+  overflow: visible
+
+button,
+select
+  text-transform: none
+
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit']
+  -webkit-appearance: button
+  cursor: pointer
+
+button[disabled],
+html input[disabled]
+  cursor: default
+
+button,
+input
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+
+input
+  line-height: normal
+  &[type='checkbox'],
+  &[type='radio']
+    box-sizing: border-box
+    padding: 0
+  &[type='number']
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button
+      height: auto
+  &[type='search']
+    +prefixer(box-sizing, content-box, webkit moz spec)
+    -webkit-appearance: textfield
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration
+      -webkit-appearance: none
+
+fieldset
+  border: 1px solid #C0C0C0
+  margin: 0 2px
+  padding: 0.35em 0.625em 0.75em
+
+textarea
+  overflow: auto
+
+optgroup
+  font-weight: bold
+
+input,
+select,
+textarea
+  border: 1px solid #C0C0C0
+
+
+/// Tables
+table
+  +reset-table

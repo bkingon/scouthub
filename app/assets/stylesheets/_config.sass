@@ -1,0 +1,75 @@
+/// Base fonts and vertical rhythm
+$base-font-family:        Roboto, $helvetica
+$base-font-size:          $em-base
+$base-line-height:        1.4
+$base-vr:                 $base-line-height * 1rem
+$base-vr-half:            $base-vr / 2
+
+/// Font
+$font-smoothing:          false
+$serif:                   'Roboto Slab', $georgia
+
+/// Neat
+$max-width:               960px
+$gutter:                  golden-ratio(1em, 1)
+$rwd-small:               new-breakpoint(max-width 767px 4)
+$rwd-large:               new-breakpoint(min-width 768px 12)
+
+/// Spacing
+$gap:                     5rem
+$gap-medium:              3rem
+$gap-small:               2rem
+
+/// Colors
+$alert-success-color:     #8BC34A
+$alert-error-color:       #F44336
+$alert-info-color:        #2196F3
+$alert-warn-color:        #FFC107
+
+$outer-space:             #263238
+$outer-space-90:          tint($outer-space,  10%)
+$outer-space-80:          tint($outer-space,  20%)
+$outer-space-70:          tint($outer-space,  30%)
+$outer-space-60:          tint($outer-space,  40%)
+$outer-space-50:          tint($outer-space,  50%)
+$outer-space-40:          tint($outer-space,  60%)
+$outer-space-30:          tint($outer-space,  70%)
+$outer-space-20:          tint($outer-space,  80%)
+$outer-space-10:          tint($outer-space,  90%)
+$outer-space-5:           tint($outer-space,  95%)
+$outer-space-s10:         shade($outer-space, 90%)
+
+$body-color:              #263238
+
+$btn-color:               #2196F3
+
+/// Header
+$header-height:           100px
+
+/// Footer
+$footer-height:           100px
+$footer-sticky:           true
+
+/// Forms
+$form-bg-color:           #FFF
+$form-text-color:         $body-color
+$form-border-color:       tint(#263238, 50%)
+$form-border-radius:      3px
+$form-border-focus:       tint(#263238, 20%)
+$form-placeholder-color:  tint(#263238, 50%)
+$form-radio-bg-color:     tint(#263238, 90%)
+$form-radio-button-size:  17px
+$form-label-color:        $body-color
+$form-label-width:        200px
+$form-spacing-unit:       $base-vr / 4
+$form-error-color:        $alert-error-color
+$form-hint-color:         tint(#263238, 50%)
+
+/// Slider
+$slider-slide-full-width: true
+$slider-arrow-color:      $body-color
+$slider-arrow-size:       30px
+$slider-dot-color:        $body-color
+$slider-dot-size:         10px
+$slider-prev-icon:        '\f104'
+$slider-next-icon:        '\f105'

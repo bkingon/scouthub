@@ -1,0 +1,27 @@
+.grid
+  +outer-container
+  padding-left: $gutter
+  padding-right: $gutter
+
+/// Convenience class for neat row
+.grid--row
+  +row
+
+/// Convenience class for content
+.grid--content
+  +span-columns(8)
+
+/// Convenience class for sidebars
+.grid--sidebar
+  +span-columns(4)
+
+/// Convenience classes for neat span-columns
+@for $x from 1 through 12
+  .grid--#{$x}of12
+    +span-columns($x)
+
++media($rwd-small)
+  @for $x from 1 through 12
+    .grid--#{$x}of12
+      +fill-parent
+      +omega

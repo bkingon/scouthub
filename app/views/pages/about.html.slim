@@ -1,0 +1,11 @@
+- set_meta_tags(title: t(:title, scope: :about))
+
+.grid
+  h1 = t(:headline, scope: :about)
+
+  .grid--row
+    .grid--8of12
+      = markdown t(:body, scope: :about)
+
+    .grid--4of12
+      = markdown t(:sidebar, scope: :about)

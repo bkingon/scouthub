@@ -1,0 +1,36 @@
+doctype html
+html class=browser_class
+  head
+    = meta_tags
+    = javascript_include_tag 'application-preload', 'data-turbolinks-track'=>false
+    = stylesheet_link_tag 'preloader', media: 'all', 'data-turbolinks-track'=>true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=>true
+    = javascript_include_tag 'vendor/modernizr.js', 'data-turbolinks-track'=>false
+    = render 'analytics'
+    = csrf_meta_tags
+
+  body class=body_class
+    = render 'environment_indicator'
+    = render 'preloader'
+
+    header.main-header
+      .grid
+        figure.main-header__logo = link_to image_tag('http://placehold.it/200x100&text=Logo', alt: t(:site_title)), root_path
+        nav.main-header__nav
+          ul.nav-header
+            - if request.path != root_path
+              li.nav-header__item = link_to fa_icon('home'), root_path, class: request.path == root_path ? 'is-active' : nil
+            li.nav-header__item = link_to 'About', page_path('about'), class: request.path == page_path('about') ? 'is-active' : nil
+            li.nav-header__item = link_to 'Contact', page_path('contact'), class: request.path == page_path('contact') ? 'is-active' : nil
+
+    main.main-body
+      = render 'flashes'
+      = yield
+
+    footer.main-footer
+      .grid &copy; #{Time.now.year} #{t(:site_title)} — All rights reserved.
+
+    = javascript_include_tag 'application', 'data-turbolinks-track'=>true
+    javascript:
+      $(document).foundation()
+    = content_for(:script)

@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Outdated Browser Detected
+    meta charset='utf-8'
+    meta content='IE=edge' http-equiv='X-UA-Compatible'
+    meta content='en' http-equiv='Content-Language'
+    = stylesheet_link_tag 'outdated-browser', media: 'all', 'data-turbolinks-track'=>false
+
+  body
+    .grid
+      h1 Please Update your Browser
+      h2
+      p To get the most out of <strong>#{request.host.gsub('www.', '')}</strong>, we recommend that you upgrade your current browser &mdash; <strong>#{browser_name}</strong>.
+      p Upgrading should only take a few minutes.
+
+      ul.browsers
+        li.browsers__item
+          = image_tag 'outdated-browser/chrome.png', alt: 'Google Chrome'
+          h2 Google Chrome
+          p = link_to 'Upgrade', 'http://www.google.com/chrome', target: '_blank'
+        li.browsers__item
+          = image_tag 'outdated-browser/ff.png', alt: 'Mozilla Firefox'
+          h2 Mozilla Firefox
+          p = link_to 'Upgrade', 'http://www.mozilla.com/firefox', target: '_blank'
+        li.browsers__item
+          = image_tag 'outdated-browser/ie.png', alt: 'Internet Explorer'
+          h2 Internet Explorer
+          p = link_to 'Upgrade', 'http://www.microsoft.com/ie', target: '_blank'
+        li.browsers__item
+          = image_tag 'outdated-browser/safari.png', alt: 'Apple Safari'
+          h2 Apple Safari
+          p = link_to 'Upgrade', 'http://www.apple.com/safari', target: '_blank'

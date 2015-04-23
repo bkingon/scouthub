@@ -1,0 +1,163 @@
+- set_meta_tags(title: 'Styleguide')
+
+.grid
+  h1 Styleguide
+  .grid--row
+    .grid--8of12
+      h2 Text
+      p Aenean eu <strong>leo quam</strong>. <a href="#fake">Pellentesque</a> ornare sem lacinia quam venenatis vestibulum.
+      p Vivamus <em>sagittis lacus</em> vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum.
+      p Nulla <del>vitae elit</del> libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod.
+
+      hr
+      h2 Lists
+      .grid--row
+        .grid--6of12
+          markdown:
+            ### Unordered
+
+            * Nullam
+            * Vestibulum
+              * Cras
+              * Ullamcorper
+            * Condimentum
+
+        .grid--6of12
+          markdown:
+            ### Ordered
+
+            1. Nullam
+            1. Vestibulum
+              1. Cras
+              1. Ullamcorper
+            1. Condimentum
+
+      hr
+      h2 Tables
+      table.table
+        thead
+          tr
+            - 4.times do |x|
+              th Heading #{x + 1}
+        tbody
+          - 4.times do |y|
+            tr
+              - 4.times do |x|
+                td Row #{y + 1} Col #{x + 1}
+
+      hr
+      h2#forms Forms
+      = simple_form_for @styleguide_test, url: '/styleguide#forms' do |f|
+        fieldset.form__inputs
+          = f.input :string, placeholder: 'Placeholder', hint: 'Lorem ipsum hint'
+          = f.input :textarea, as: :text, input_html: { rows: 5 }, hint: 'Lorem ipsum hint'
+          = f.input :select, as: :fancy_select, collection: ['Option 1', 'Option 2'], hint: 'Lorem ipsum hint'
+          = f.input :radio_buttons, as: :fancy_radio_buttons, collection: ['Option 1', 'Option 2'], hint: 'Lorem ipsum hint', wrapper_html: { class: 'form__radio-buttons--block' }
+          = f.input :inline_radio_buttons, as: :fancy_radio_buttons, collection: ['Option 1', 'Option 2'], hint: 'Lorem ipsum hint'
+          = f.input :check_boxes, as: :fancy_check_boxes, collection: ['Option 1', 'Option 2'], hint: 'Lorem ipsum hint', wrapper_html: { class: 'form__check-boxes--block' }
+          = f.input :inline_check_boxes, as: :fancy_check_boxes, collection: ['Option 1', 'Option 2'], hint: 'Lorem ipsum hint'
+          = f.input :file, as: :fancy_file, hint: 'Lorem ipsum hint'
+        fieldset.form__actions
+          = f.button :submit, 'Submit', class: 'btn'
+
+      hr
+      h2 Flashes
+      - %w/ alert--notice alert--success alert alert--info alert--warning alert--alert alert--error/.each do |alert|
+        div class=alert data-alert=''
+          .alert__container
+            button.close type='button' &times;
+            p = alert
+
+      hr
+      h2 Slider
+
+      h3 Single Slide
+      .slider
+        - 10.times do |x|
+          div
+            .slide-content style='height:200px' Slide #{x + 1}
+
+      h3 Multiple Slides
+      .multi-slider
+        - 10.times do |x|
+          div
+            .slide-content style='height:200px' Slide #{x + 1}
+
+      hr
+      h2 Foundation
+
+      h3 Modals
+      p = link_to 'Show Modal', '#show-modal', 'data-reveal-id'=>'testModal'
+      #testModal.reveal-modal data-reveal=''
+        h2 Test Modal
+        = link_to '&times;'.html_safe, '#', class: 'close-reveal-modal'
+
+      h3 Tooltips
+      p
+        span.has-tip.tip-right title='Tooltips are awesome, you should totally use them!' data-tooltip='' Hover over me
+
+      h3 Tabs
+      markdown:
+        <dl class="tabs" data-tab>
+          <dd class="active"><a href="#panel1">Tab 1</a></dd>
+          <dd><a href="#panel2">Tab 2</a></dd>
+          <dd><a href="#panel3">Tab 3</a></dd>
+          <dd><a href="#panel4">Tab 4</a></dd>
+        </dl>
+        <div class="tabs-content">
+          <div class="content active" id="panel1">
+            <p>This is the first panel of the basic tab example. This is the first panel of the basic tab example.</p>
+          </div>
+          <div class="content" id="panel2">
+            <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+          </div>
+          <div class="content" id="panel3">
+            <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+          </div>
+          <div class="content" id="panel4">
+            <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
+          </div>
+        </div>
+
+      h3 Accordions
+      markdown:
+        <ul class="accordion" data-accordion>
+          <li class="accordion-navigation">
+            <a href="#panel1a">Accordion 1</a>
+            <div id="panel1a" class="content active">
+              Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+          </li>
+          <li class="accordion-navigation">
+            <a href="#panel2a">Accordion 2</a>
+            <div id="panel2a" class="content">
+              Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+          </li>
+          <li class="accordion-navigation">
+            <a href="#panel3a">Accordion 3</a>
+            <div id="panel3a" class="content">
+              Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+          </li>
+        </ul>
+
+      h3 Dropdown
+      ul
+        li <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">Simple Dropdown</a>
+        li <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">Content Dropdown</a>
+
+      markdown:
+        <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+          <li><a href="#">This is a link</a></li>
+          <li><a href="#">This is another</a></li>
+          <li><a href="#">Yet another</a></li>
+        </ul>
+        <div id="drop2" data-dropdown-content class="f-dropdown content" aria-hidden="true" tabindex="-1">
+          <p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p>
+        </div>
+
+    .grid--4of12
+      - 6.times do |x|
+        = content_tag("h#{x + 1}", "H#{x + 1} Heading")
+        p Maecenas faucibus mollis interdum.

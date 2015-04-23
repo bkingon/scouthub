@@ -1,0 +1,92 @@
+@import 'http://fonts.googleapis.com/css?family=Roboto:300,400,500'
+
+@import 'bourbon'
+@import 'neat'
+
+$body-color:    #34495E
+$body-bg-color: #EEEEEE
+$button-color:  #F44336
+
+=reset-box
+  border: 0
+  margin: 0
+  padding: 0
+
+=reset-list
+  +reset-box
+  list-style: none
+
+*
+  +prefixer(box-sizing, border-box, webkit moz spec)
+  +reset-box
+
+body
+  background: $body-bg-color
+  color: $body-color
+  font-family: Roboto, $helvetica
+  font-size: 16px
+  line-height: 1.4
+  padding-left: 16px
+  padding-right: 16px
+
+h1, h2
+  font-weight: 400
+  margin-bottom: 10px
+  text-align: center
+  text-transform: uppercase
+
+h2
+  color: #B71C1C
+  margin-bottom: 30px
+
+p
+  font-weight: 300
+  margin-bottom: 15px
+  text-align: center
+  strong
+    font-weight: 500
+
+.grid
+  +outer-container
+  padding-top: 60px
+
+.browsers
+  +reset-list
+  +row
+  margin-top: 80px
+
+  &__item
+    +span-columns(3)
+    border-left: 1px dashed shade($body-bg-color, 20%)
+    text-align: center
+    padding: 20px 0
+    position: relative
+    &:first-child
+      border-left: 0
+
+    h2
+      color: $body-color
+      font-size: 14px
+      font-weight: 500
+      margin-bottom: 30px
+      text-transform: uppercase
+
+    img
+      display: inline-block
+      height: 50%
+      margin-bottom: 16px
+      width: 50%
+
+    a
+      background: $button-color
+      border-radius: 3px
+      color: #FFF
+      display: inline-block
+      padding: 10px 15px
+      text-decoration: none
+      text-transform: uppercase
+      &:hover
+        background: shade($button-color, 5%)
+
+.lc
+  +omega

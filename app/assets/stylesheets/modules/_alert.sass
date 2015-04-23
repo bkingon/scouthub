@@ -1,0 +1,57 @@
+.alert,
+.alert--alert,
+.alert--error,
+.alert--info,
+.alert--notice,
+.alert--success,
+.alert--warning
+  +transition(opacity 300ms ease-out)
+  border-radius: 2px
+  color: #FFF
+  margin-bottom: $base-vr
+  position: relative
+
+  &.alert-close
+    opacity: 0
+
+.alert--notice,
+.alert--success
+  background-color: $alert-success-color
+
+.alert,
+.alert--info
+  background-color: $alert-info-color
+
+.alert--warning
+  background-color: $alert-warn-color
+
+.alert--alert,
+.alert--error
+  background-color: $alert-error-color
+
+.alert__container
+  @extend .grid
+  padding: 1rem
+  position: relative
+  *:last-child
+    margin-bottom: 0
+
+.close
+  +reset-box
+  +reset-outline
+  +transition(all 150ms ease-out)
+  background: none
+  color: #FFF
+  cursor: pointer
+  font-family: $georgia
+  font-size: 24px
+  font-weight: 700
+  line-height: 1
+  opacity: 0.6
+  position: absolute
+  right: 10px
+  text-decoration: none
+  text-shadow: 0 -1px 1px rbga(#000, 0.6)
+  top: 10px
+  &:hover
+    opacity: 1

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="8px" viewBox="0 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon--radio-button" fill="#263238">
+            <path d="M4,1 C2.34,1 1,2.34 1,4 C1,5.66 2.34,7 4,7 C5.66,7 7,5.66 7,4 C7,2.34 5.66,1 4,1 L4,1 Z"></path>
+        </g>
+    </g>
+</svg>

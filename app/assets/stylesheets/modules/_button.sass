@@ -1,0 +1,47 @@
+=btn--disabled($color)
+  background-color: $color
+  cursor: default
+  opacity: 0.5
+
+=btn--states($color)
+  &:hover,
+  &:focus
+    background-color: darken($color, 5)
+    outline: none
+
+  &:active
+    background-color: darken($color, 9)
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled
+    +btn--disabled($color)
+    &:hover,
+    &:active
+      +btn--disabled($color)
+
+.btn
+  +prefixer(user-drag, none, webkit)
+  +transition(background 150ms ease, color 150ms ease, border 150ms ease)
+  +user-select(none)
+  background-color: $btn-color
+  border-radius: 3px
+  border: 0
+  color: #FFF
+  cursor: pointer
+  display: inline-block
+  font-size: 1rem
+  font-weight: 400
+  letter-spacing: 0.01rem
+  line-height: 1
+  overflow: hidden
+  padding: ($base-vr / 2) $base-vr
+  text-align: center
+  text-decoration: none
+  vertical-align: middle
+  white-space: nowrap
+  +btn--states($btn-color)
+
+.btn--large
+  @extend .btn
+  font-size: 1.4rem

@@ -1,0 +1,97 @@
+html
+  font-family: $base-font-family
+
+body
+  color: $body-color
+
+@if $footer-sticky
+  html
+    min-height: 100%
+    position: relative
+
+  body
+    margin-bottom: $footer-height
+
+h1,h2,h3,h4,h5,h6,
+ol,ul,dl,
+p,
+pre,table,fieldset,hr
+  margin-bottom: $base-vr
+
+ol,
+ul
+  margin-left: $base-vr
+  ol,
+  ul
+    margin-bottom: 0
+
+dl
+  dt
+    font-weight: bold
+  dd
+    margin-bottom: $base-vr
+    &:last-child
+      margin-bottom: 0
+
+a
+  color: blue
+  text-decoration: none
+  border-bottom: 1px dotted blue
+
+@if $font-smoothing
+  html,
+  input,
+  textarea,
+  button
+    +prefixer(font-smoothing, antialiased, webkit spec)
+    -moz-osx-font-smoothing: grayscale
+
+hr
+  border-color: $body-color
+
+
+/// Headings
+h1, .h1
+  font-size: rem(32)
+  font-weight: bold
+  line-height: rem(32)
+
+h2, .h2
+  font-size: rem(24)
+  font-weight: bold
+  line-height: rem(24)
+
+h3, .h3
+  font-size: rem(20)
+  font-weight: bold
+  line-height: rem(20)
+  margin-bottom: $base-vr / 2
+
+h4, .h4
+  font-size: rem(18)
+  font-weight: bold
+  line-height: rem(18)
+  margin-bottom: $base-vr / 3
+
+h5, .h5,
+h6, .h6
+  font-size: rem(13)
+  font-weight: bold
+  line-height: rem(13)
+  margin-bottom: 0
+  text-transform: uppercase
+
+
+/// Helpers
+.is-hidden
+  +hide-element
+
+
+// Text Modifiers
+@each $x in left center right
+  .text--#{$x}
+    text-align: $x
+
+@each $x in top middle bottom
+  .text--#{$x}
+    vertical-align: $x

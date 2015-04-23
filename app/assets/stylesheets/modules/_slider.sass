@@ -1,0 +1,152 @@
+.slide-content
+  padding: $base-vr
+  text-align: center
+
+.slick-slide
+  background: #EFEFEF
+
+/// Slider
+.slick-slider
+  +user-select(none)
+  +prefixer(touch-action, pan-y, ms spec)
+  +prefixer(touch-callout, none, webkit)
+  +prefixer(tap-highlight-color, transparent, webkit)
+  display: block
+  margin-bottom: $base-vr * 2
+  position: relative
+  @if $slider-slide-full-width != true
+    padding: 0 $slider-arrow-size
+
+.slick-list
+  display: block
+  margin: 0
+  overflow: hidden
+  padding: 0
+  position: relative
+  &:focus
+    outline: 0
+  &.dragging
+    cursor: pointer
+    cursor: hand
+
+.slick-track
+  +clearfix
+  +transform(translate3d(0, 0, 0))
+  display: block
+  left: 0
+  position: relative
+  top: 0
+
+.slick-slide
+  display: none
+  float: left
+  height: 100%
+  min-height: 1px
+
+  img
+    display: block
+
+  &.slick-loading
+    img
+      display: none
+  &.dragging
+    img
+      pointer-events: none
+
+.slick-initialized
+  .slick-slide
+    display: block
+
+.slick-loading
+  .slick-list
+    background: #FFF
+  .slick-track,
+  .slick-slide
+    visibility: hidden
+
+.slick-vertical
+  .slick-slide
+    display: block
+    height: auto
+
+
+/// Arrows
+.slick-prev,
+.slick-next
+  @extend .fa
+  +reset-box
+  +transition(opacity 150ms ease)
+  background: none
+  color: $slider-arrow-color
+  cursor: pointer
+  display: block
+  font-size: 0
+  line-height: 1
+  margin-top: $slider-arrow-size / 2 * -1
+  opacity: 0.75
+  outline: 0
+  position: absolute
+  top: 50%
+  &:before
+    +size($slider-arrow-size)
+    content: ''
+    display: block
+    font-size: $slider-arrow-size
+    font-weight: normal
+  &:hover,
+  &:focus
+    opacity: 1
+
+  &.slick-disabled
+    opacity: 0.25
+
+.slick-prev
+  left: 0
+  &:before
+    content: $slider-prev-icon
+
+.slick-next
+  right: 0
+  &:before
+    content: $slider-next-icon
+
+
+/// Dots
+.slick-dots
+  +reset-box
+  +reset-list
+  bottom: $slider-dot-size * -2
+  font-size: 0
+  position: absolute
+  text-align: center
+  width: 100%
+  @if $slider-slide-full-width == true
+    margin: 0
+  @else
+    margin: 0 #{$slider-arrow-size * -1}
+
+
+  li
+    display: inline-block
+    margin: 0 #{$slider-dot-size / 2}
+    position: relative
+
+    button
+      +reset-box
+      +size($slider-dot-size)
+      +transition(background-color 150ms ease)
+      background-color: tint($slider-dot-color, 30%)
+      border-radius: 50%
+      cursor: pointer
+      display: block
+      font-size: 0
+      line-height: 0
+      outline: 0
+      position: relative
+      &:hover,
+      &:focus
+        background-color: tint($slider-dot-color, 40%)
+
+    &.slick-active
+      button
+        background-color: $slider-dot-color

@@ -1,0 +1,30 @@
+.main-header
+  background-color: gray
+  height: $header-height
+
+  &__logo
+    +span-columns(6)
+
+    a
+      +reset-link
+
+    img
+      display: block
+
+  &__nav
+    +span-columns(6)
+    text-align: right
+
+.nav-header
+  +reset-list
+  display: inline-block
+  font-size: 0
+
+  &__item
+    display: inline-block
+    font-size: rem($base-font-size)
+
+    a
+      +reset-link
+      display: block
+      padding: 0 1.2rem
